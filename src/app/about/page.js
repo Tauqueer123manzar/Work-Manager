@@ -3,7 +3,7 @@ async function takeTime(){
 }
 export default async function about(){
   await takeTime();
-//   throw new Error("something went wrong")
+  // throw new Error("something went wrong")
   return (
     <div>
       <h1>This is about page</h1>
