@@ -47,19 +47,6 @@ export async function POST(req){
    }
 }
 
-// ================================== User DELETED ========================================
-
-
-export function DELETE(req){
-    console.log("deleted users");
-    return NextResponse.json(
-        {
-            message:"deleted users",
-            status:200
-        }
-    )
-}
-
 export function PUT(req){
 
 }
