@@ -1,16 +1,32 @@
 import mongoose from "mongoose";
-import {UserSchema} from "../models/user";
-export const connectDb=async()=>{
+import User from "../models/user";
+export const connectDb = async () => {
     try {
-     const {connection}= await mongoose.connect(process.env.MONGODB_URI,{
-            dbName:"work_manager"
+        const { connection } = await mongoose.connect(process.env.MONGODB_URI, {
+            dbName: "work_manager"
         });
 
-        //Testing for user
-        
         console.log("database connected successfully.....");
-        console.log("connected with host:",connection.port);
-        console.log(connection);
+
+           //Testing for user
+           const user = new User({
+            name: "Md Tauqueer Manzar",
+            email: "tauqueer@gmail",
+            password: "12345"
+        });
+        user.save();
+
+        const user2 = new User({
+            name: "Md Sarfraz",
+            email: "sarfraz@gmail",
+            password: "12345"
+        });
+        user2.save();
+
+        console.log("User Cerated Successfully");
+        console.log(user);
+        console.log(user2);
+        console.log("connected with host:", connection.port);
     } catch (error) {
         console.log("failed to connect with database");
         console.log(error);
