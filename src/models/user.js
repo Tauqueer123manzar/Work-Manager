@@ -13,7 +13,7 @@ const Userschema=new mongoose.Schema({
         type:String,
         required:[true,"Password is required"]
     }
-});
+},{timestamps:true});
 
 const User=mongoose.model("User",Userschema);
 
