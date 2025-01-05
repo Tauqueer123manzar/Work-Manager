@@ -18,3 +18,20 @@ export async function DELETE(req,{params}){
     }
 }
 
+// ======================================== User Updated (PUT) ==============================================
+export async function PUT(req,{params}){
+    const {userId}=params;
+    const{name,password}=await req.json();
+    try {
+        const UpdatedUser=await User.findById(userId);
+        UpdatedUser.name=name;
+        UpdatedUser.password=password;
+        await UpdatedUser.save();
+        return NextResponse.json(UpdatedUser);
+    } catch (error) {
+        return NextResponse.json({
+            message:"Failed to update user !!",
+            success:false,
+        });
+    }
+}
