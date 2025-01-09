@@ -18,6 +18,6 @@ const TaskSchema=new mongoose.Schema({
         enum:["Pending","Completed"],
         default:"Pending",
     }
-});
+},{timestamps:true});
 
 export default mongoose.models.Task || mongoose.model("Task",TaskSchema);
